@@ -10,6 +10,7 @@
 $(document).ready(function() {
 	var template = $('#template').html();
 	Mustache.parse(template);
+
 	$.get("/vaaliohjelmat.json", function(data) {
 		var shuffled = _.shuffle(data);
 		var ordinal = 65;
@@ -20,8 +21,16 @@ $(document).ready(function() {
 			$("#target").append(output);
 		});
 	});
+
+	$("#show").click(function() {
+		$("h2").show();
+		$("h3").show();
+	});
 });
 </script>
+
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
 <!--
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 <style type="text/css">
@@ -31,7 +40,10 @@ $(document).ready(function() {
 -->
 </head>
 <body>
+<p><a href="#" id="show">Näytä puolueet</a></p>
+
 <div id="target"></div>
+
 <script id="template" type="x-tmpl-mustache">
 <h1>Puolue {{ord}}</h1>
 <h2>{{ party }}</h2>
