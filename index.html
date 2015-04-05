@@ -11,7 +11,7 @@ $(document).ready(function() {
 	var template = $('#template').html();
 	Mustache.parse(template);
 
-	$.get("/vaaliohjelmat.json", function(data) {
+	$.get("vaaliohjelmat.json", function(data) {
 		var shuffled = _.shuffle(data);
 		var ordinal = 65;
 		_.forEach(shuffled, function(p) {
