@@ -6,6 +6,6 @@ p img {
 	width: 18px;
 }
 
-.party, .programme {
+.party, .programme, footer {
 	display: none;
 }

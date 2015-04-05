@@ -20,12 +20,14 @@ $(document).ready(function() {
 			var output = Mustache.render(template, p);
 			$("#target").append(output);
 		});
+		$("footer").show();
 	});
 
 	$("#show").click(function() {
 		$(".programme").show();
 		$(".party").show();
 	});
+
 });
 </script>
 
@@ -37,7 +39,6 @@ $(document).ready(function() {
 <h1>Puolueiden vaaliohjelmat 2015</h1>
 <p>Pohdin, miltä vaaliohjelmat mahtaisivat kuulostaa ilman puolueen nimen luomaa ennakkoluuloa. Kaivoin nykyisten eduskuntapuolueiden vaaliohjelmista pääotsikot ja listasin ne ilman puolueiden nimiä.
 </p>
-<p><a href="#" id="show">Näytä puolueiden nimet</a></p>
 <div id="target"></div>
 
 <script id="template" type="x-tmpl-mustache">
@@ -48,10 +49,14 @@ $(document).ready(function() {
 {{/programme}}
 </ul>
 </script>
+
+<footer>
 <hr>
+<p><a href="#" id="show">Näytä puolueiden nimet</a></p>
 <p>
 <a href="https://twitter.com/ykarikos"><img src="twitter.png"></a>
 <a href="https://github.com/ykarikos/vaaliohjelmat"><img src="octocat.png"></a>
 </p>
+</footer>
 </body>
 </html>
