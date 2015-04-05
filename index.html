@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Puolueiden vaaliohjelmat 2015</title>
+ <title>Nykyisten eduskuntapuolueiden vaaliohjelmat 2015</title>
  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
  <script type="text/javascript" src="js/mustache.min.js"></script>
  <script type="text/javascript" src="js/lodash.min.js"></script>
@@ -23,12 +23,13 @@ $(document).ready(function() {
 	});
 
 	$("#show").click(function() {
-		$("h2").show();
-		$("h3").show();
+		$(".programme").show();
+		$(".party").show();
 	});
 });
 </script>
 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 
 <!--
@@ -40,14 +41,13 @@ $(document).ready(function() {
 -->
 </head>
 <body>
-<p><a href="#" id="show">Näytä puolueet</a></p>
+<h1>Nykyisten eduskuntapuolueiden vaaliohjelmat 2015</h1>
 
+<p><a href="#" id="show">Näytä puolueiden nimet</a></p>
 <div id="target"></div>
 
 <script id="template" type="x-tmpl-mustache">
-<h1>Puolue {{ord}}</h1>
-<h2>{{ party }}</h2>
-<h3><a href="{{url}}">Vaaliohjelma</a></h3>
+<h2>Puolue {{ord}}<span class="party">: <a href="{{url}}">{{ party }}</a></h2>
 <ul>
 {{#programme}}
 <li> {{.}}
