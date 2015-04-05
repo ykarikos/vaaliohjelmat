@@ -2,6 +2,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+p img {
+	width: 18px;
+}
+
 .party, .programme {
 	display: none;
 }
