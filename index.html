@@ -4,15 +4,21 @@
  <title>Puolueiden vaaliohjelmat 2015</title>
  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
  <script type="text/javascript" src="js/mustache.min.js"></script>
+ <script type="text/javascript" src="js/lodash.min.js"></script>
 <script type="text/javascript">
-
 
 $(document).ready(function() {
 	var template = $('#template').html();
 	Mustache.parse(template);
 	$.get("/vaaliohjelmat.json", function(data) {
-		var output = Mustache.render(template, data[0]);
-		$("#target").html(output);
+		var shuffled = _.shuffle(data);
+		var ordinal = 65;
+		_.forEach(shuffled, function(p) {
+			p.ord = String.fromCharCode(ordinal);
+			ordinal++;
+			var output = Mustache.render(template, p);
+			$("#target").append(output);
+		});
 	});
 });
 </script>
@@ -25,8 +31,9 @@ $(document).ready(function() {
 -->
 </head>
 <body>
-<div id="target">Loading...</div>
+<div id="target"></div>
 <script id="template" type="x-tmpl-mustache">
+<h1>Puolue {{ord}}</h1>
 <h2>{{ party }}</h2>
 <h3><a href="{{url}}">Vaaliohjelma</a></h3>
 <ul>
